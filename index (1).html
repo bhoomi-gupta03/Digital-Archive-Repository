@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple digital archive repository for managing and discovering records.">
+  <title>ArchiveSpace | Digital Archive Repository</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>ArchiveSpace</h1>
+    <p>Digital Archive &amp; Repository Management System</p>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Digital Repository</h2>
+      <p>Organize, discover and manage digital records with structured metadata.</p>
+      <p class="muted">Portfolio project · Fictional sample records</p>
+    </section>
+
+    <section class="panel" aria-labelledby="recordsHeading">
+      <h2 id="recordsHeading">Repository Records</h2>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search records..." aria-label="Search records">
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="">All categories</option>
+          <option value="Research">Research</option>
+          <option value="Documents">Documents</option>
+          <option value="Photographs">Photographs</option>
+        </select>
+        <button id="addBtn" type="button">+ Add Record</button>
+      </div>
+      <p id="resultCount" class="muted" aria-live="polite"></p>
+      <div id="recordList" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog id="recordDialog" aria-labelledby="dialogTitle">
+    <form id="recordForm">
+      <h2 id="dialogTitle">Add Record</h2>
+
+      <label for="title">Title <span aria-hidden="true">*</span></label>
+      <input id="title" name="title" type="text" required maxlength="120" placeholder="Record title">
+
+      <label for="category">Category <span aria-hidden="true">*</span></label>
+      <select id="category" name="category" required>
+        <option value="Research">Research</option>
+        <option value="Documents">Documents</option>
+        <option value="Photographs">Photographs</option>
+      </select>
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" maxlength="300" rows="3" placeholder="Brief description"></textarea>
+
+      <label for="author">Author</label>
+      <input id="author" name="author" type="text" maxlength="100" placeholder="Author or creator name">
+
+      <label for="recordDate">Publication Date</label>
+      <input id="recordDate" name="recordDate" type="date">
+
+      <label for="tags">Tags</label>
+      <input id="tags" name="tags" type="text" maxlength="200" placeholder="history, research, culture">
+      <p class="field-help">Separate tags with commas.</p>
+
+      <label for="source">Source URL (optional)</label>
+      <input id="source" name="source" type="url" placeholder="https://example.org">
+
+      <div class="form-actions">
+        <button type="submit">Save Record</button>
+        <button id="cancelBtn" class="secondary" type="button">Cancel</button>
+      </div>
+      <p class="field-help">Fields marked * are required.</p>
+    </form>
+  </dialog>
+</body>
+</html>
